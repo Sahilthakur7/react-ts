@@ -2,14 +2,8 @@ import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-interface IState {
-  people: {
-    name: string,
-    age: number,
-    url: string,
-    note?: string,
-  }[]
-}
+import List from './components/List';
+import { IPerson } from './types/types';
 
 function App() {
   // const [people, setPeople] = useState([{
@@ -24,11 +18,13 @@ function App() {
   //   note: "My favourite player"
   // }])
 
-  const [people, setPeople] = useState<IState["people"]>([])
+  // const [people, setPeople] = useState<IState["people"]>([])
+  const [people, setPeople] = useState<IPerson[]>([])
 
   return (
     <div className="App">
       People invited to the party
+      <List people={people} />
     </div>
   );
 }
